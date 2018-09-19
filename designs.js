@@ -14,6 +14,7 @@ gridForm.addEventListener('submit', function makeGrid(event) {
     while (canvas.hasChildNodes()) {
         canvas.removeChild(canvas.firstChild);
     }
+    canvas.style.backgroundColor = 'black';
     for (let row = 1; row <= gridHeight; row++) {
         let currentRow = document.createElement('tr');
         canvas.append(currentRow);
