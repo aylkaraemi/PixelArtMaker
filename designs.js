@@ -2,8 +2,7 @@
 const canvas = document.querySelector('#pixelCanvas');
 const gridForm = document.querySelector('#sizePicker');
 
-// Select color input
-const paint = document.querySelector('#colorPicker').value;
+
 
 
 // When size is submitted by the user, call makeGrid()
@@ -26,5 +25,7 @@ gridForm.addEventListener('submit', function makeGrid(event) {
 
 // When table is clicked, change color of cell clicked
 canvas.addEventListener('click', function paintCell(event) {
-    event.target.style.backgroundColor(paint);
+    // Select color input
+    const paint = document.querySelector('#colorPicker').value;
+    event.target.style.backgroundColor = paint;
 });
