@@ -1,14 +1,9 @@
-// Select table & form
 const canvas = document.querySelector('#pixelCanvas');
 const gridForm = document.querySelector('#sizePicker');
 
 
-
-
-// When size is submitted by the user, call makeGrid()
 gridForm.addEventListener('submit', function makeGrid(event) {
     event.preventDefault();
-    // Select size input
     const gridHeight = document.querySelector('#inputHeight').value;
     const gridWidth = document.querySelector('#inputWidth').value;
     while (canvas.hasChildNodes()) {
@@ -26,10 +21,7 @@ gridForm.addEventListener('submit', function makeGrid(event) {
 });
 
 
-
-// When table is clicked, change color of cell clicked
 canvas.addEventListener('click', function paintCell(event) {
-    // Select color input
     const paint = document.querySelector('#colorPicker').value;
     event.target.style.backgroundColor = paint;
 });
