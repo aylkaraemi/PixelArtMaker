@@ -1,14 +1,17 @@
-// Select color input
-const paint = document.querySelector('#colorPicker');
-// Select size input
-const gridHeight = document.querySelector('#inputHeight');
-const gridWidth = document.querySelector('#inputWidth');
 // Select table & form
 const canvas = document.querySelector('#pixelCanvas');
 const gridForm = document.querySelector('#sizePicker');
 
+// Select color input
+const paint = document.querySelector('#colorPicker').value;
+// Select size input
+const gridHeight = document.querySelector('#inputHeight').value;
+const gridWidth = document.querySelector('#inputWidth').value;
+
+
 // When size is submitted by the user, call makeGrid()
-function makeGrid() {
+gridForm.addEventListener('submit', function makeGrid(event) {
+    event.preventDefault();
     for (let row = 1; row <= gridHeight; row++) {
         let currentRow = document.createElement('tr');
         canvas.append(currentRow);
@@ -17,12 +20,11 @@ function makeGrid() {
             currentRow.append(currentCell);
         };
     };
-}
+});
 
-gridForm.addEventListener('submit', makeGrid(), true);
 
 
 // When table is clicked, change color of cell clicked
 canvas.addEventListener('click', function paintCell(event) {
     event.target.style.backgroundColor(paint);
-}, true);
+});
