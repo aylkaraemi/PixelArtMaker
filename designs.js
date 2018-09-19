@@ -3,25 +3,26 @@ const paint = document.querySelector('#colorPicker');
 // Select size input
 const gridHeight = document.querySelector('#inputHeight');
 const gridWidth = document.querySelector('#inputWidth');
-// Select table
+// Select table & form
 const canvas = document.querySelector('#pixelCanvas');
+const gridForm = document.querySelector('#sizePicker');
 
 // When size is submitted by the user, call makeGrid()
-function makeGrid(gridHeight, gridWidth) {
-    for (var row = 1; row <= gridHeight; row++) {
+function makeGrid() {
+    for (let row = 1; row <= gridHeight; row++) {
         let currentRow = document.createElement('tr');
         canvas.append(currentRow);
-        for (var col = 1; col <= gridWidth; col++) {
+        for (let col = 1; col <= gridWidth; col++) {
             let currentCell = document.createElement('td');
             currentRow.append(currentCell);
-        }
-    }
+        };
+    };
 }
 
-document.querySelector('#sizePicker').addEventListener('submit', makeGrid(gridHeight, gridWidth));
+gridForm.addEventListener('submit', makeGrid(), true);
 
 
-
-document.querySelector('#pixelCanvas').addEventListener('click', function(Event) {
-    Event.target.style.backgroundColor(paint);
-});
+// When table is clicked, change color of cell clicked
+canvas.addEventListener('click', function paintCell(event) {
+    event.target.style.backgroundColor(paint);
+}, true);
