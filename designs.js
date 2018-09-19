@@ -11,6 +11,9 @@ gridForm.addEventListener('submit', function makeGrid(event) {
     // Select size input
     const gridHeight = document.querySelector('#inputHeight').value;
     const gridWidth = document.querySelector('#inputWidth').value;
+    while (canvas.hasChildNodes()) {
+        canvas.removeChild(canvas.firstChild);
+    }
     for (let row = 1; row <= gridHeight; row++) {
         let currentRow = document.createElement('tr');
         canvas.append(currentRow);
